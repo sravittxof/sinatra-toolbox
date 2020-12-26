@@ -6,4 +6,4 @@ Tool.find_or_create_by(reference_number: 1, returned: true, tool_description: "S
 
 Tool.find_or_create_by(reference_number: 2, returned: true, tool_description: "Hammer")
 
-JobTool.find_or_create_by(job_id: Job.first.id, tool_id: Tool.first.id)
+#JobTool.find_or_create_by(job_id: Job.first.id, tool_id: Tool.first.id)
