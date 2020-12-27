@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201223033607) do
+ActiveRecord::Schema.define(version: 20201227043416) do
 
   create_table "job_tools", force: :cascade do |t|
     t.integer "job_id"
@@ -39,6 +39,8 @@ ActiveRecord::Schema.define(version: 20201223033607) do
     t.string "last_name"
     t.string "department"
     t.string "position"
+    t.string "username"
+    t.string "password_digest"
   end
 
 end
