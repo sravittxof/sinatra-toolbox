@@ -14,5 +14,7 @@ ActiveRecord::Base.establish_connection(
 
 require './app/controllers/application_controller'
 require './app/controllers/users_controller'
+require './app/controllers/jobs_controller'
+require './app/controllers/tools_controller'
 require_all 'app'
 require 'sysrandom/securerandom'

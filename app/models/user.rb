@@ -11,5 +11,5 @@ class User  < ActiveRecord::Base
     #     validates :email, confirmation: true
     #     validates :email_confirmation, presence: true
     #   end
-
+    # DO NOT USE 'validates: ...' because the 'has_secure_method' password does this for you, and using both will cause a conflict.
 end
