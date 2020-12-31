@@ -1,4 +1,7 @@
 <h1>Sign Up</h1>
+<br>
+<%= @errors%><br>
+<br>
 <form method="POST" action="/signup">
     <label for="username">Choose Username</label>
     <input type="text" name="username"><br>
@@ -12,5 +15,6 @@
     <input type="text" name="department"><br>
     <label for="position">Enter Your Position</label>
     <input type="text" name="position"><br>
+    <br>
     <input type="submit" value="Sign Up">
 </form>

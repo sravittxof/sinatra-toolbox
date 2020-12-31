@@ -1,0 +1,8 @@
+<h1>Jobs</h1>
+
+<% @jobs.each do |job|%>
+    <p><%= job.reference_number.to_s%></p>
+    <p><%= job.complete%></p>
+    <p><%= job.summary%></p>
+    <p><%= job.description%></p>
+<% end%>
