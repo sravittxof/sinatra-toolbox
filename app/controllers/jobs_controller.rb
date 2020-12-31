@@ -4,8 +4,10 @@ class JobsController < ApplicationController
         erb :'/jobs/new'
     end
 
-    post 'jobs' do
-        
+    post '/jobs' do
+        job = current_user.jobs.create(params)
+        job.update(complete: false)
+        redirect to '/jobs'
     end
 
     get '/jobs' do
@@ -13,8 +15,18 @@ class JobsController < ApplicationController
         erb :'/jobs/index'
     end
 
-    #get do
+    get '/jobs/:id' do
+        @job = Job.find_by(id: params[:id])
+        if @job
+            erb :'jobs/show'
+        else
+            redirect to '/jobs'
+        end
+    end
 
-    #end
+    get '/jobs/:id/edit' do
+
+    end
+
 
 end

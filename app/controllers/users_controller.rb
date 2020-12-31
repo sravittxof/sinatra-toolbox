@@ -15,11 +15,12 @@ class UsersController < ApplicationController
             erb :'users/new'
         end
     end
-  
+
+  #login and logout should be in sessions controller
     get '/login' do
         erb :'/users/login'
     end
-
+  
     post '/login' do
         user = User.find_by(username: params[:username])
         if user && user.authenticate(params[:password])
@@ -34,6 +35,10 @@ class UsersController < ApplicationController
 
     end
 
-    #logout link
-     
+    delete '/logout' do
+        session.clear
+        redirect to '/welcome'
+    end
+
+    
 end
