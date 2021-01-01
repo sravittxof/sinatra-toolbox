@@ -14,7 +14,7 @@ class JobsController < ApplicationController
         @jobs = Job.all
         erb :'/jobs/index'
     end
-
+ 
     get '/jobs/:id' do
         @job = Job.find_by(id: params[:id])
         if @job
@@ -25,7 +25,12 @@ class JobsController < ApplicationController
     end
 
     get '/jobs/:id/edit' do
-
+        @job = Job.find_by(id: params[:id])
+        if @job.user == current_user
+            erb :'/jobs/edit'
+        else
+            redirect to '/jobs'
+        end
     end
 
 
