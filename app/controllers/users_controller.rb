@@ -37,7 +37,7 @@ class UsersController < ApplicationController
 
     delete '/logout' do
         session.clear
-        redirect to '/welcome'
+        redirect to '/login'
     end
 
     
