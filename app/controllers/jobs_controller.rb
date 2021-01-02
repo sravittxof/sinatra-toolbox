@@ -33,5 +33,15 @@ class JobsController < ApplicationController
         end
     end
 
+    patch '/jobs:id' do
+        @job = Job.find_by(id: params[:id])
+        if @job.user == current_user
+            @job.update(params[:job])
+            redirect to "/jobs/#{job.id}"
+        else
+            redirect to '/jobs'
+        end
+    end
+
 
 end
