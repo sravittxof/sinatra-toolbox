@@ -1,0 +1,21 @@
+<h1>Job</h1>
+
+        <p><%= @job.reference_number.to_s%></p>
+        <p><%= @job.complete%></p>
+        <p><%= @job.summary%></p>
+        <p><%= @job.description%></p>
+        <br>
+        <br>        
+
+    <ul>    
+        <% @job.tools.each do |tool|%>
+        <li><p><%= tool_description%></p></li>
+        <% end%>
+    </ul>
+
+
+        <br>
+        <br>
+        <a href="/jobs/<%= @job.id%>/edit">Edit Job</a></li>
+        <a href="/jobs">Back to Jobs</a></li>
+
