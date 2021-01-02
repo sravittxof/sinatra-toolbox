@@ -1,8 +1,13 @@
 <h1>Jobs</h1>
 
 <% @jobs.each do |job|%>
-    <p><%= job.reference_number.to_s%></p>
-    <p><%= job.complete%></p>
-    <p><%= job.summary%></p>
-    <p><%= job.description%></p>
+    <ul>
+        <li><p><%= job.reference_number.to_s%></p></li>
+        <li><p><%= job.complete%></p></li>
+        <li><p><%= job.summary%></p></li>
+        <li><p><%= job.description%></p></li>
+        <li><a href="/jobs/<%= @job.id%>">Go To Job</a></li>
+    </ul>
+    <br>
+    <br>
 <% end%>
