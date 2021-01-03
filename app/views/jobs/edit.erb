@@ -1,0 +1,11 @@
+<h1>Edit Job</h1>
+
+<form method="POST" action="/jobs/<%=@job.id%>">
+        <input id="hidden" type="text" name="description" value="<%=@job.description%>">
+        <input id="hidden"type="hidden" name="_method" value="PATCH">
+        <input type="text" name="summary" value="<%=@job.summary%>">
+        <input type="hidden" name="_method" value="PATCH">
+        <br>
+        <br>
+        <input type="submit" value="patch"> 
+</form>

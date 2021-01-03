@@ -18,7 +18,7 @@ class UsersController < ApplicationController
 
   #login and logout should be in sessions controller
     get '/login' do
-        erb :'/users/login'
+        erb :'users/login'
     end
   
     post '/login' do
@@ -27,11 +27,11 @@ class UsersController < ApplicationController
             session[:user_id] = user.id
             redirect to '/jobs'
         else
-            redirect to '/users/login'
+            redirect to '/login'
         end
     end
 
-    get 'user/:id' do
+    get 'user/:id' do   
 
     end
 

@@ -1,6 +1,11 @@
 class JobsController < ApplicationController
 
-    get 'jobs/new' do
+    get '/jobs' do
+        @jobs = Job.all
+        erb :'/jobs/index'
+    end
+
+    get '/jobs/new' do
         erb :'/jobs/new'
     end
 
@@ -8,11 +13,6 @@ class JobsController < ApplicationController
         job = current_user.jobs.create(params)
         job.update(complete: false)
         redirect to '/jobs'
-    end
-
-    get '/jobs' do
-        @jobs = Job.all
-        erb :'/jobs/index'
     end
  
     get '/jobs/:id' do
@@ -33,11 +33,11 @@ class JobsController < ApplicationController
         end
     end
 
-    patch '/jobs:id' do
+    patch '/jobs/:id' do
         @job = Job.find_by(id: params[:id])
         if @job.user == current_user
-            @job.update(params[:job])
-            redirect to "/jobs/#{job.id}"
+            @job.update(description: params[:description], summary: params[:summary])
+            redirect to "/jobs/#{@job.id}"
         else
             redirect to '/jobs'
         end
