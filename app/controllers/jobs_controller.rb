@@ -43,5 +43,10 @@ class JobsController < ApplicationController
         end
     end
 
+    delete '/jobs/:id' do 
+        job = Job.find_by(id: params[:id])
+        job.destroy
+        redirect to '/jobs'
+    end
 
 end
