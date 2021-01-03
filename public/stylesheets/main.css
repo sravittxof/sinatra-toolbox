@@ -19,8 +19,48 @@
     line-height: 18px;
   }
 
+  .container {
+    display: inline-block;
+    width: 80%;
+    margin: 0 auto;
+    float: right;
+  }
+
+  header {
+    background: #
+    display: inline-block;
+    float: right;
+  }
+
+  header::after {
+    content: '';
+    display: table;
+    clear: both; 
+    float: right;
+  }
+
+  nav {
+    display: inline-block;
+    float: right;
+  }
+
+  nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    display: inline;
+    float: right;
+  }
+
+  nav li {
+    display: inline-block;
+    margin-left: 70px;
+    padding-top: 25px;
+    float: right;
+  }
+   
   .wrapper {
-    background: #fff;
+    background: rgb(255, 255, 255);
     -moz-box-shadow: 0 0 10px rgba(0,0,0,.3);
     -webkit-box-shadow: 0 0 10px rgba(0,0,0,.3);
     box-shadow: 0 0 10px rgba(0,0,0,.3);
@@ -52,7 +92,7 @@
   }
 
   .main {
-    overflow: hidden;
+    overflow: hidden
   }
 
   .content {

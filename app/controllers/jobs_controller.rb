@@ -1,12 +1,20 @@
 class JobsController < ApplicationController
 
     get '/jobs' do
-        @jobs = Job.all
-        erb :'/jobs/index'
+        if logged_in?
+            @jobs = Job.all
+            erb :'/jobs/index'
+        else
+            redirect to '/'
+        end
     end
 
     get '/jobs/new' do
-        erb :'/jobs/new'
+        if logged_in?
+            erb :'/jobs/new'
+        else
+            redirect to '/'
+        end
     end
 
     post '/jobs' do
@@ -16,20 +24,28 @@ class JobsController < ApplicationController
     end
  
     get '/jobs/:id' do
-        @job = Job.find_by(id: params[:id])
-        if @job
-            erb :'jobs/show'
+        if logged_in?
+            @job = Job.find_by(id: params[:id])
+            if @job
+                erb :'jobs/show'
+            else
+                redirect to '/jobs'
+            end
         else
-            redirect to '/jobs'
+            redirect to '/'
         end
     end
 
     get '/jobs/:id/edit' do
-        @job = Job.find_by(id: params[:id])
-        if @job.user == current_user
-            erb :'/jobs/edit'
+        if logged_in?
+            @job = Job.find_by(id: params[:id])
+            if @job.user == current_user
+                erb :'/jobs/edit'
+            else
+                redirect to '/jobs'
+            end
         else
-            redirect to '/jobs'
+            redirect to '/'
         end
     end
 
@@ -45,8 +61,12 @@ class JobsController < ApplicationController
 
     delete '/jobs/:id' do 
         job = Job.find_by(id: params[:id])
-        job.destroy
-        redirect to '/jobs'
-    end
+        if job.user == current_user
+            job.destroy
+            redirect to '/jobs'
+        else
+            redirect to '/jobs'
+        end
 
+    end
 end

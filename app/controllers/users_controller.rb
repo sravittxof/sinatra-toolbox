@@ -32,7 +32,12 @@ class UsersController < ApplicationController
     end
 
     get 'user/:id' do   
-
+        if logged_in?
+            @user = User.find_by(id: params[:id])
+            erb :'/users/show'
+        else
+            redirect to '/'
+        end
     end
 
     delete '/logout' do
