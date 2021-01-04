@@ -53,8 +53,6 @@ class JobsController < ApplicationController
         @job = Job.find_by(id: params[:id])
         if @job.user == current_user
             @job.update(description: params[:description], summary: params[:summary])
-            tool = Tool.find_by(id: params[:tool])
-            @job.tools << tool
             redirect to "/jobs/#{@job.id}"
         else
             redirect to '/jobs'
@@ -69,6 +67,5 @@ class JobsController < ApplicationController
         else
             redirect to '/jobs'
         end
-
     end
 end
