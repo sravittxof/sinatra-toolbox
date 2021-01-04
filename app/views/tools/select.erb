@@ -6,7 +6,7 @@
     <p>Tool Description: <%= tool.tool_description%></p><br>
 
 
-    <input type="radio" name="job[tools][][<%=tool.id%>">
+    <input type="radio" name="job[tools][]id[<%=tool.id%>]">
     <input type="hidden" name="_method" value="PATCH">
     <button type="submit">Add Tool</button>
     <hr>

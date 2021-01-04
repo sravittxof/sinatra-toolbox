@@ -15,9 +15,9 @@ class ToolsController < ApplicationController
     end
 
     patch '/tools/job/:id' do
-        binding.pry
         @job = Job.find_by(id: params[:id])
-        #@job.tools << Tool.where(id: params)
+        #{"_method"=>"PATCH", "job"=>{"tools"=>[{"id"=>{"4"=>"on"}}]}, "id"=>"8"}
+        @job.tools << Tool.where(id: params[:job][:tools][0][:id].keys)
         redirect to "/jobs/#{@job.id}"
     end
 
