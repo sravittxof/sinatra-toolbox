@@ -16,7 +16,6 @@ class UsersController < ApplicationController
         end
     end
 
-  #login and logout should be in sessions controller
     get '/login' do
         erb :'users/login'
     end

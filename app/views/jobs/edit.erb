@@ -1,11 +1,39 @@
-<h1>Edit Job</h1>
+<h2>Edit Job</h2>
 
 <form method="POST" action="/jobs/<%=@job.id%>">
+        <label for="description">Description</label>
         <input id="hidden" type="text" name="description" value="<%=@job.description%>">
         <input id="hidden"type="hidden" name="_method" value="PATCH">
-        <input type="text" name="summary" value="<%=@job.summary%>">
+        <br>
+        <br>
+        <label for="summary">Summary</label>
+        <input type="text" name="summary" value="<%=@job.summary%>"><br>
         <input type="hidden" name="_method" value="PATCH">
         <br>
         <br>
-        <input type="submit" value="Submit Changes"> 
+        <input type="submit" value="Submit Changes">
 </form>
+
+        <br>
+        <br>
+        <br>
+        <br>
+
+<h2>Select Tool</h2>
+<form method="POST" action="/jobs/<%=@job.id%>">
+        <% Tool.all.each do |tool|%>
+        <p>Reference Number: <%= tool.reference_number.to_s%></p><br>
+        <p>Tool Description: <%= tool.tool_description%></p><br>
+        
+        <input type="radio" name="tool_id" value="<%=tool%>">
+        <input type="hidden" name="_method" value="PATCH">
+        <button type="submit">Add Tool</button>
+        <hr>
+        <% end%>
+</form>
+        <br>
+        <br>
+        <br>
+        <br>
+
+    <a href="/jobs/<%=@job.id%>">Back to Job - Note, any changes you make will not be saved unless you Submit. </a></li>

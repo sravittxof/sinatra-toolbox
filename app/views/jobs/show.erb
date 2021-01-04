@@ -1,28 +1,30 @@
 <h1>Job</h1>
 
-    <p><%= @job.reference_number.to_s%></p>
-    <p><%= @job.complete%></p>
-    <p><%= @job.summary%></p>
-    <p><%= @job.description%></p>
-    <p><%= @job.user.username%></p> 
+    <p>Reference Number: <%= @job.reference_number.to_s%></p>
+    <p>User <%= @job.user.username%></p>
+    <p>Description: <%= @job.description%></p>
+    <p>Summary: <%= @job.summary%></p>
+
     <br>
     <br>
 
+    <h4>Current Toolbox</h4>
     <ul>    
         <% @job.tools.each do |tool|%>
-        <li><p><%= tool_description%></p></li>
+        <li><p><%= tool.tool_description%></p></li>
         <% end%>
     </ul>
 
+    <br>
+    <br>
+    <a href="/jobs/<%= @job.id%>/edit">Edit Job</a></li><br>
+    <a href="/jobs">Back to Jobs</a></li>
 
     <br>
     <br>
-    <a href="/jobs/<%= @job.id%>/edit">Edit Job</a></li>
+    <br>
 
     <form method="POST" action="/jobs/<%= @job.id%>">
         <input type="hidden" name="_method" value="DELETE">
         <input type="submit" value="Delete This Job">
     </form>
-
-    <a href="/jobs">Back to Jobs</a></li>
-
