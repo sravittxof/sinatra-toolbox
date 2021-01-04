@@ -12,7 +12,7 @@
         <br>
         <br>
         <input type="submit" value="Submit Changes">
-</form>
+
 
         <br>
         <br>
@@ -20,12 +20,12 @@
         <br>
 
 <h2>Select Tool</h2>
-<form method="POST" action="/jobs/<%=@job.id%>">
+
         <% Tool.all.each do |tool|%>
         <p>Reference Number: <%= tool.reference_number.to_s%></p><br>
         <p>Tool Description: <%= tool.tool_description%></p><br>
         
-        <input type="radio" name="tool_id" value="<%=tool%>">
+        <input type="radio" name="tool" value="<%=tool.id%>">
         <input type="hidden" name="_method" value="PATCH">
         <button type="submit">Add Tool</button>
         <hr>
