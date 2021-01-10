@@ -23,21 +23,19 @@
     display: inline-block;
     width: 80%;
     margin: 0 auto;
-    float: right;
+
   }
 
   header {
     background: #
     display: inline-block;
-    float: right;
   }
 
-  header::after {
+  /* header::after {
     content: '';
     display: table;
     clear: both; 
-    float: right;
-  }
+  } */
 
   nav {
     display: inline-block;
@@ -48,15 +46,12 @@
     margin: 0;
     padding: 0;
     list-style: none;
-    display: inline;
-    float: right;
   }
 
   nav li {
     display: inline-block;
     margin-left: 70px;
     padding-top: 25px;
-    float: right;
   }
    
   .wrapper {

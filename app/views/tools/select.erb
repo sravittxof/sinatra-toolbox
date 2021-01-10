@@ -4,12 +4,16 @@
 <% @tools.each do |tool|%>
     <p>Reference Number: <%= tool.reference_number.to_s%></p><br>
     <p>Tool Description: <%= tool.tool_description%></p><br>
-
-
-    <input type="radio" name="job[tools][]id[<%=tool.id%>]">
-    <input type="hidden" name="_method" value="PATCH">
-    <button type="submit">Add Tool</button>
+    <input type="checkbox" name="job[tool_ids][]" value="<%= tool.id%>"> <%=tool.id%>
+    <br>
     <hr>
+    <br>
 <% end%>
-
+    
+    <input type="hidden" name="_method" value="PATCH">
+    <button type="submit">Add Tools</button>
+    <hr>
 </form>
+
+<br>
+<a href="/jobs/<%=@job.id%>">Back to Job</a></li>

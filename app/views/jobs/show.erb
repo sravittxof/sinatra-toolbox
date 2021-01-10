@@ -1,7 +1,7 @@
 <h1>Job</h1>
 
     <p>Reference Number: <%= @job.reference_number.to_s%></p>
-    <p>User <%= @job.user.username%></p>
+    <p>User: <%= @job.user.username%></p>
     <p>Description: <%= @job.description%></p>
     <p>Summary: <%= @job.summary%></p>
 
@@ -17,11 +17,11 @@
 
     <br>
     <br>
-    <a href="/jobs/<%= @job.id%>/edit">Edit Job</a></li><br>
-    <a href="/jobs">Back to Jobs</a></li>
+    <a href="/jobs/<%= @job.id%>/edit">Edit Job</a><br>
+    <a href="/tools/job/<%= @job.id%>">Select Tools for Job</a><br>
+    <a href="/tools/job/<%= @job.id%>">Select Tools for Job</a><br>
+    <a href="/jobs">Back to Jobs</a><br>
 
-
-    <a href="/tools/job/<%= @job.id%>">Select Tools for Job</a></li><br>
 
     <br>
     <br>

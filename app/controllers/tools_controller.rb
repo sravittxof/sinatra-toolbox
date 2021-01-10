@@ -13,11 +13,14 @@ class ToolsController < ApplicationController
             redirect to '/'
         end 
     end
-
+  
     patch '/tools/job/:id' do
         @job = Job.find_by(id: params[:id])
-        #{"_method"=>"PATCH", "job"=>{"tools"=>[{"id"=>{"4"=>"on"}}]}, "id"=>"8"}
-        @job.tools << Tool.where(id: params[:job][:tools][0][:id].keys)
+        #{"_method"=>"PATCH", "job"=>{"tools"=>[{"id"=>{"4"=>"on"}}]}, "id"=>"8"}   
+        
+        params[:job][:tool_ids].each do |tool_id|
+            @job.tools << Tool.find_by(id: tool_id)
+        end
         redirect to "/jobs/#{@job.id}"
     end
 

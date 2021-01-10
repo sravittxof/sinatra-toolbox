@@ -19,17 +19,6 @@
         <br>
         <br>
 
-<h2>Select Tool</h2>
-
-        <% Tool.all.each do |tool|%>
-        <p>Reference Number: <%= tool.reference_number.to_s%></p><br>
-        <p>Tool Description: <%= tool.tool_description%></p><br>
-        
-        <input type="radio" name="tool" value="<%=tool.id%>">
-        <input type="hidden" name="_method" value="PATCH">
-        <button type="submit">Add Tool</button>
-        <hr>
-        <% end%>
 </form>
         <br>
         <br>
