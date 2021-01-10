@@ -36,7 +36,6 @@ class JobsController < ApplicationController
         end
     end
 
-
     get '/jobs/:id/edit' do
         if logged_in?
             @job = Job.find_by(id: params[:id])
