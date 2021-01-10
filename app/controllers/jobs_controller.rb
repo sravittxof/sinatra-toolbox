@@ -61,7 +61,7 @@ class JobsController < ApplicationController
 
     delete '/jobs/:id' do 
         job = Job.find_by(id: params[:id])
-        if job.user == current_user
+        if job.user == current_user && job.tools.none? { |tool| tool.currentjob == job.id }
             job.destroy
             redirect to '/jobs'
         else
