@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20201227043416) do
+ActiveRecord::Schema.define(version: 20210110053723) do
 
   create_table "job_tools", force: :cascade do |t|
     t.integer "job_id"
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 20201227043416) do
     t.integer "reference_number"
     t.boolean "returned"
     t.string  "tool_description"
+    t.integer "currentjob"
   end
 
   create_table "users", force: :cascade do |t|

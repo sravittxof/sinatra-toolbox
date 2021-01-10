@@ -1,4 +1,4 @@
-<h1>Select Tools</h1>
+<h1>Return Tools</h1>
 
 <form method="POST" action="/tools/job/<%=@job.id%>">
 <% @tools.each do |tool|%>
@@ -10,8 +10,8 @@
     <br>
 <% end%>
     
-
-    <button type="submit">Add Tools</button>
+    <input type="hidden" name="_method" value="PATCH">
+    <button type="submit">Return Tools</button>
     <hr>
 </form>
 

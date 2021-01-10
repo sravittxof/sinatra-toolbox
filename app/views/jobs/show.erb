@@ -11,7 +11,9 @@
     <h4>Current Toolbox</h4>
     <ul>    
         <% @job.tools.each do |tool|%>
-        <li><p><%= tool.tool_description%></p></li>
+            <% if tool.currentjob == @job.id %>        
+                <li><p><%= tool.tool_description%></p></li>
+            <% end%>
         <% end%>
     </ul>
 
@@ -19,7 +21,7 @@
     <br>
     <a href="/jobs/<%= @job.id%>/edit">Edit Job</a><br>
     <a href="/tools/job/<%= @job.id%>">Select Tools for Job</a><br>
-    <a href="/tools/job/<%= @job.id%>">Select Tools for Job</a><br>
+    <a href="/tools/job/<%= @job.id%>/edit">Return Tools</a><br>
     <a href="/jobs">Back to Jobs</a><br>
 
 
