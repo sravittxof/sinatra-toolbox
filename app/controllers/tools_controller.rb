@@ -3,11 +3,11 @@ class ToolsController < ApplicationController
     get '/tools/job/:id' do
         if logged_in?
             @job = Job.find_by(id: params[:id])
-            if @job
+            if @job.user == current_user
                 @tools = Tool.where(returned: true)
                 erb :"/tools/select"
             else
-                redirect to '/jobs'
+                redirect to "/jobs/#{@job.id}"
             end
         else
             redirect to '/'
@@ -31,7 +31,7 @@ class ToolsController < ApplicationController
     get '/tools/job/:id/edit' do
         if logged_in?
             @job = Job.find_by(id: params[:id])
-            if @job
+            if @job.user = current_user
                 @tools = @job.tools.where(returned: false, currentjob: @job.id)
                 erb :"/tools/edit"
             else
